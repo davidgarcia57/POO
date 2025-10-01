@@ -1,6 +1,9 @@
 import os
 os.system("cls")
 
+
+
+
 class Coches:
 
     #Atributos o propiedades(variables)
@@ -60,40 +63,12 @@ class Coches:
 
     #Metodos o acciobes o funciones que hace el objeto
     def acelerar(self):
-        pass
+        return "Estoy acelerando el coche"
 
     def frenar(self):
-        pass
+        return "Estoy frenando el coche"
 
 
-    #Crea un objeto o instancia de la clase Coches
 
-#Mulltiples objetos
-coche1=Coches("VW","Blanco","2022",220,150,5)
-coche2=Coches("Nissan","Azul","2020",180,150,6)
-coche3=Coches("Honda","","",0,0,0)
-
-#Utiliza los metodos get para obtener los valores de las propiedades o atributos del objeto coche1
-print(f'''
-Marca: {coche1.getMarca()}
-Color: {coche1.getColor()}
-Modelo: {coche1.getModelo()}
-Velocidad: {coche1.getVelocidad()}
-Caballaje: {coche1.getCaballaje()}
-Plazas: {coche1.getPlazas()}
-''')
-
-print(f'''
-Marca: {coche2.getMarca()}  
-Color: {coche2.getColor()}
-Modelo: {coche2.getModelo()}
-Velocidad: {coche2.getVelocidad()}
-Caballaje: {coche2.getCaballaje()}
-Plazas: {coche2.getPlazas()}
-''')
-
-print(f'''
-Marca: {coche3.getMarca()}
-''')
 
 
