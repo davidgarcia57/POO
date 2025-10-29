@@ -1,0 +1,214 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "Untitled",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model",
+			"ownedElements": [
+				{
+					"_type": "UMLClassDiagram",
+					"_id": "AAAAAAFF+qBtyKM79qY=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "Main",
+					"defaultDiagram": true
+				}
+			]
+		},
+		{
+			"_type": "UMLActivity",
+			"_id": "AAAAAAGZqnuyGhsxC4U=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Activity1",
+			"ownedElements": [
+				{
+					"_type": "UMLActivityDiagram",
+					"_id": "AAAAAAGZqnuyGhsyCvE=",
+					"_parent": {
+						"$ref": "AAAAAAGZqnuyGhsxC4U="
+					},
+					"name": "ActivityDiagram1",
+					"ownedViews": [
+						{
+							"_type": "UMLSwimlaneView",
+							"_id": "AAAAAAGZqnwDPxtSSjw=",
+							"_parent": {
+								"$ref": "AAAAAAGZqnuyGhsyCvE="
+							},
+							"model": {
+								"$ref": "AAAAAAGZqnwDPhtQ99s="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAGZqnwDPxtTeT4=",
+									"_parent": {
+										"$ref": "AAAAAAGZqnwDPxtSSjw="
+									},
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 184,
+									"top": 148,
+									"width": 192,
+									"height": 13,
+									"text": "Estudiante",
+									"verticalAlignment": 3
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 184,
+							"top": 144,
+							"width": 192,
+							"height": 300,
+							"nameLabel": {
+								"$ref": "AAAAAAGZqnwDPxtTeT4="
+							}
+						},
+						{
+							"_type": "UMLSwimlaneView",
+							"_id": "AAAAAAGZqnwaqBtbJN8=",
+							"_parent": {
+								"$ref": "AAAAAAGZqnuyGhsyCvE="
+							},
+							"model": {
+								"$ref": "AAAAAAGZqnwapxtZIRY="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAGZqnwaqBtcgpo=",
+									"_parent": {
+										"$ref": "AAAAAAGZqnwaqBtbJN8="
+									},
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 376,
+									"top": 148,
+									"width": 232,
+									"height": 13,
+									"text": "Sistema",
+									"verticalAlignment": 3
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 376,
+							"top": 144,
+							"width": 232,
+							"height": 300,
+							"nameLabel": {
+								"$ref": "AAAAAAGZqnwaqBtcgpo="
+							}
+						},
+						{
+							"_type": "UMLSwimlaneView",
+							"_id": "AAAAAAGZqnw/ehtkowo=",
+							"_parent": {
+								"$ref": "AAAAAAGZqnuyGhsyCvE="
+							},
+							"model": {
+								"$ref": "AAAAAAGZqnw/ehtiF2A="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAGZqnw/ehtlTTw=",
+									"_parent": {
+										"$ref": "AAAAAAGZqnw/ehtkowo="
+									},
+									"font": "Arial;13;0",
+									"parentStyle": true,
+									"left": 608,
+									"top": 148,
+									"width": 288,
+									"height": 13,
+									"text": "División de registros",
+									"verticalAlignment": 3
+								}
+							],
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 608,
+							"top": 144,
+							"width": 288,
+							"height": 300,
+							"nameLabel": {
+								"$ref": "AAAAAAGZqnw/ehtlTTw="
+							}
+						}
+					]
+				}
+			],
+			"nodes": [
+				{
+					"_type": "UMLAction",
+					"_id": "AAAAAAGZqnvCbxs2Uh8=",
+					"_parent": {
+						"$ref": "AAAAAAGZqnuyGhsxC4U="
+					},
+					"name": "Llena su ficha de pago"
+				},
+				{
+					"_type": "UMLInitialNode",
+					"_id": "AAAAAAGZqn1XLBt3AfE=",
+					"_parent": {
+						"$ref": "AAAAAAGZqnuyGhsxC4U="
+					},
+					"name": "InitialNode1"
+				}
+			],
+			"edges": [
+				{
+					"_type": "UMLControlFlow",
+					"_id": "AAAAAAGZqn2B5ht/cUA=",
+					"_parent": {
+						"$ref": "AAAAAAGZqnuyGhsxC4U="
+					},
+					"source": {
+						"$ref": "AAAAAAGZqn1XLBt3AfE="
+					},
+					"target": {
+						"$ref": "AAAAAAGZqnvCbxs2Uh8="
+					}
+				}
+			],
+			"groups": [
+				{
+					"_type": "UMLActivityPartition",
+					"_id": "AAAAAAGZqnwDPhtQ99s=",
+					"_parent": {
+						"$ref": "AAAAAAGZqnuyGhsxC4U="
+					},
+					"name": "Estudiante"
+				},
+				{
+					"_type": "UMLActivityPartition",
+					"_id": "AAAAAAGZqnwapxtZIRY=",
+					"_parent": {
+						"$ref": "AAAAAAGZqnuyGhsxC4U="
+					},
+					"name": "Sistema"
+				},
+				{
+					"_type": "UMLActivityPartition",
+					"_id": "AAAAAAGZqnw/ehtiF2A=",
+					"_parent": {
+						"$ref": "AAAAAAGZqnuyGhsxC4U="
+					},
+					"name": "División de registros"
+				}
+			]
+		}
+	],
+	"documentVersion": 1
+}
