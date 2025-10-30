@@ -27,8 +27,11 @@ label_titulo.config(
 )
 label_titulo.pack()
 
-label_nombre = Label(frame_principal, text="Nombre: ...", COMMAND = cambiarTexto()).pack(pady=10)
-label_contrasena = Label(frame_principal, text="Contraseña: ...").pack(pady=10)
+label_nombre = Label(ventana, text="Nombre: ...")
+label_nombre.pack(pady=10)
+label_contrasena = Label(ventana, text="Contraseña: ...")
+label_contrasena.pack(pady=10)
 
-boton_aceptar = Button(ventana, text="Aceptar").pack(pady=10)
+boton_aceptar = Button(ventana, text="Aceptar", command = cambiarTexto()).pack(pady=10)
+boton_regresar = Button(ventana, text="Regresar",command = cambiarTexto()).pack(pady=10)
 ventana.mainloop()
