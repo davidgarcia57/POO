@@ -1,18 +1,31 @@
 from tkinter import messagebox
 
 #Controlador
-def suma(numero1,numero2):
-    suma=numero1+numero2
-    messagebox.showinfo(icon="info", title="Suma", message=f"{numero1} + {numero2} = {suma}")
+def operaciones(operacion, numero1, numero2):
+    try:
+        if operacion == "suma":
+            resultado = numero1 + numero2
+            simbolo = "+"
+            titulo = "Suma"
+        elif operacion == "resta":
+            resultado = numero1 - numero2
+            simbolo = "-"
+            titulo = "Resta"
+        elif operacion == "multiplicacion":
+            resultado = numero1 * numero2
+            simbolo = "x"
+            titulo = "Multiplicación"
+        elif operacion == "division":
+            if numero2 == 0:
+                messagebox.showerror("Error", "No se puede dividir por cero")
+                return
+            resultado = numero1 / numero2
+            simbolo = "/"
+            titulo = "División"
+        else:
+            messagebox.showerror("Error", f"Operación desconocida: {operacion}")
+            return
 
-def resta(numero1,numero2):
-     resta=numero1-numero2
-     messagebox.showinfo(icon="info", title="Resta", message=f"{numero1} + {numero2} = {resta}")
-
-def multiplicacion(numero1,numero2):
-     multiplicacion=numero1*numero2
-     messagebox.showinfo(icon="info", title="Multiplicación", message=f"{numero1} + {numero2} = {multiplicacion}")
-
-def division(numero1,numero2):
-    division=numero1/numero2
-    messagebox.showinfo(icon="info", title="División", message=f"{numero1} + {numero2} = {division}")
+        messagebox.showinfo(icon="info", title=titulo, message=f"{numero1} {simbolo} {numero2} = {resultado}")
+    except Exception as e:
+        messagebox.showerror(f"Ocurrió el siguiente error: {e}")
