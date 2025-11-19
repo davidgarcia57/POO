@@ -2,7 +2,7 @@ from conexionBD import *
 
 class Operaciones:
   @staticmethod
-  def crear(numero1,numero2,signo,resultado):
+  def insertar(numero1,numero2,signo,resultado):
     try:
       cursor.execute(
       "insert into operaciones values(null,,NOW(),%s,%s,%s,%s)",

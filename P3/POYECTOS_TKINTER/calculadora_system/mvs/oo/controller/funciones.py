@@ -1,4 +1,5 @@
 from tkinter import messagebox
+from model import operaciones
 
 #Controlador
 
@@ -21,7 +22,9 @@ class Controladores:
             else:
                 messagebox.showerror("Error", f"Operación desconocida: {simbolo}")
                 return
-
-            messagebox.showinfo(icon="info", title=titulo, message=f"{numero1} {simbolo} {numero2} = {resultado}")
+            result=messagebox.askquestion( message=f"{numero1} {simbolo} {numero2} = {resultado}\n ¿Quires guardar la operación en la BD?",icon="question")
+            if result =="yes":
+                operaciones.Operaciones.insertar(numero1, numero2, simbolo, resultado)
+            #messagebox.showinfo(icon="info", title=titulo, message=f"{numero1} {simbolo} {numero2} = {resultado}")
         except Exception as e:
             messagebox.showerror("Error", f"Ocurrió el siguiente error: {e}")

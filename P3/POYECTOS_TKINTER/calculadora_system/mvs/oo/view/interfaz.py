@@ -10,6 +10,41 @@ class Vistas:
         ventana.resizable(False,False)
         self.interfaz(ventana)
         
+
+    def menuPrincipal(self,ventana):
+        menuBar= Menu(ventana)
+        ventana.config(menu=menuBar)
+        archivoMenu=Menu(menuBar, tearoff=False)
+        menuBar.add_cascade(label="Operaciónes", menu=archivoMenu)
+        archivoMenu.add_command(label="Agregar",command=lambda: "")
+        archivoMenu.add_command(label="Consultar",command=lambda:"")
+        archivoMenu.add_command(label="Cambiar",command=lambda:"")
+        archivoMenu.add_command(label="Borrar",command=lambda: "")
+        archivoMenu.add_separator()
+        archivoMenu.add_command(label="Salir", command=ventana.quit)
+    
+    def eliminar(self,ventana):
+        label_titulo=Label(ventana, text=".::Borrar una Operación::.")
+        label_titulo.pack()
+        label_titulo.config(
+        font=("Arial", 18)
+        )
+
+        label_id=Label(ventana, text=".::Borrar una Operación::.")
+        label_id.pack()
+        label_id.config(
+        font=("Arial", 12)
+        )
+
+        entry_id=Entry(ventana)
+        entry_id.pack()
+
+        boton_eliminar=Button(ventana, text="Eliminar")
+        boton_eliminar.pack()
+
+        boton_volver=Button(ventana, text="Volver")
+        boton_volver.pack()
+
     def interfaz(self,ventana):
 
         n1=IntVar()
