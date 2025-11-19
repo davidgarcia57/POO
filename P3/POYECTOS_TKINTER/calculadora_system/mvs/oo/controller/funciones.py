@@ -6,25 +6,25 @@ from model import operaciones
 class Controladores:
 
     @staticmethod
-    def operaciones(titulo, numero1, numero2, simbolo):
+    def operaciones(titulo, numero1, numero2, signo):
         try:
-            if simbolo == "+":
+            if signo == "+":
                 resultado = numero1 + numero2
-            elif simbolo == "-":
+            elif signo == "-":
                 resultado = numero1 - numero2
-            elif simbolo == "x":
+            elif signo == "x":
                 resultado = numero1 * numero2
-            elif simbolo == "/":
+            elif signo == "/":
                 if numero2 == 0:
                     messagebox.showerror("Error", "No se puede dividir por cero")
                     return
                 resultado = numero1 / numero2
             else:
-                messagebox.showerror("Error", f"Operación desconocida: {simbolo}")
+                messagebox.showerror("Error", f"Operación desconocida: {signo}")
                 return
-            result=messagebox.askquestion( message=f"{numero1} {simbolo} {numero2} = {resultado}\n ¿Quires guardar la operación en la BD?",icon="question")
+            result=messagebox.askquestion( message=f"{numero1} {signo} {numero2} = {resultado}\n ¿Quires guardar la operación en la BD?",icon="question")
             if result =="yes":
-                operaciones.Operaciones.insertar(numero1, numero2, simbolo, resultado)
-            #messagebox.showinfo(icon="info", title=titulo, message=f"{numero1} {simbolo} {numero2} = {resultado}")
+                operaciones.Operaciones.insertar(numero1, numero2, signo, resultado)
+            #messagebox.showinfo(icon="info", title=titulo, message=f"{numero1} {signo} {numero2} = {resultado}")
         except Exception as e:
             messagebox.showerror("Error", f"Ocurrió el siguiente error: {e}")
