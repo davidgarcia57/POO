@@ -1,6 +1,7 @@
 from controller import funciones
 from tkinter import *
 from model import operaciones
+from tkinter import messagebox
 
 #Interfaz o View
 
@@ -38,20 +39,89 @@ class Vistas:
         btn_salir=Button(ventana,text="Salir",command=ventana.quit)
         btn_salir.pack(pady=10)
 
-
     def menuPrincipal(self,ventana):
         menuBar= Menu(ventana)
         ventana.config(menu=menuBar)
         archivoMenu=Menu(menuBar, tearoff=False)
         menuBar.add_cascade(label="Operaciónes", menu=archivoMenu)
         archivoMenu.add_command(label="Agregar",command=lambda: self.interfaz(ventana))
-        archivoMenu.add_command(label="Consultar",command=lambda:"")
-        archivoMenu.add_command(label="Cambiar",command=lambda:"")
+        archivoMenu.add_command(label="Consultar",command=lambda: self.consultar(ventana))
+        archivoMenu.add_command(label="Cambiar",command=lambda: self.cambiar(ventana))
         archivoMenu.add_command(label="Borrar",command=lambda: self.eliminar(ventana))
         archivoMenu.add_separator()
         archivoMenu.add_command(label="Salir", command=ventana.quit)
     
+    def consultar(self,ventana):
+        self.borrarPantalla(ventana)
+        self.menuPrincipal(ventana)
+        label_titulo=Label(ventana, text=".::Lista de las Operaciónes::.") 
+        label_titulo.pack(pady=5)
+        label_titulo.config()
 
+        resultado = operaciones.Operaciones.mostrar()
+        if len(resultado)>0:
+            n = 1
+            for fila in resultado:
+                texto = f"Operacion: {n}  ID:{fila[0]}  Fecha de creacion: {fila[1]} \nOperación: {fila[2]}{fila[4]}{fila[3]}={fila[5]}"
+                label_item = Label(ventana, text=texto)
+                label_item.pack()
+                label_item.config()
+                n += 1
+        else:
+            messagebox.INFO(text="No existen operaciónes en el Sistema ... agregar operaciones ...")
+
+
+        boton_volver=Button(ventana, text="Volver", command=lambda: self.interfaz(ventana))
+        boton_volver.pack()
+
+    def cambiar(self,ventana):
+        self.borrarPantalla(ventana)
+        self.menuPrincipal(ventana)
+        label_titulo=Label(ventana, text=".::Lista de las Operaciónes::.") 
+        label_titulo.pack(pady=5)
+        label_titulo.config()
+
+        label_id=Label(ventana, text="ID de la Operación: ")
+        label_id.pack(pady=5)
+        label_id.config()
+        id = 0
+        entry_id=Entry(ventana, textvariable=id, justify="right",width=30)
+        entry_id.focus()
+        entry_id.pack(pady=5)
+
+        label_num1=Label(ventana, text="Nuevo Número 1")
+        label_num1.pack(pady=5)
+        label_num1.config()
+        num1 = 0
+        entry_num1=Entry(ventana, textvariable=num1, justify="right",width=30)
+        entry_num1.pack(pady=5)
+
+        label_num2=Label(ventana, text="Nuevo Número 2")
+        label_num2.pack(pady=5)
+        label_num2.config()
+        num2 = 0
+        entry_num2=Entry(ventana, textvariable=num2, justify="right",width=30)
+        entry_num2.pack(pady=5)
+
+        label_signo=Label(ventana, text="Nuevo Signo")
+        label_signo.pack(pady=5)
+        label_signo.config()
+        signo = StringVar()
+        entry_signo=Entry(ventana, textvariable=signo, justify="right",width=30)
+        entry_signo.pack(pady=5)
+
+        label_resultado=Label(ventana, text="Nuevo Resultado")
+        label_resultado.pack(pady=5)
+        label_resultado.config()
+        resultado = 0
+        entry_resultado=Entry(ventana, textvariable=resultado, justify="right",width=30)
+        entry_resultado.pack(pady=5)
+
+        boton_guardar=Button(ventana, text="Guardar", command=lambda: operaciones.Operaciones.actualizar(num1, num2, signo, resultado, id))
+        boton_guardar.pack(pady=10)
+
+        boton_volver=Button(ventana, text="Volver", command=lambda: self.interfaz(ventana))
+        boton_volver.pack()
 
     def eliminar(self,ventana):
         self.borrarPantalla(ventana)
@@ -78,7 +148,6 @@ class Vistas:
 
         boton_volver=Button(ventana, text="Volver", command=lambda: self.interfaz(ventana))
         boton_volver.pack()
-
     
     def borrarPantalla(self,ventana):
         for widget in ventana.winfo_children():
