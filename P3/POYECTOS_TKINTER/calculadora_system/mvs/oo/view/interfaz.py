@@ -58,7 +58,7 @@ class Vistas:
         label_titulo.pack(pady=5)
         label_titulo.config()
 
-        resultado = operaciones.Operaciones.mostrar()
+        resultado = funciones.Controladores.consultar()
         if len(resultado)>0:
             n = 1
             for fila in resultado:
@@ -68,8 +68,7 @@ class Vistas:
                 label_item.config()
                 n += 1
         else:
-            messagebox.INFO(text="No existen operaciónes en el Sistema ... agregar operaciones ...")
-
+            messagebox.showinfo(text="No existen operaciónes en el Sistema ... agregar operaciones ...")
 
         boton_volver=Button(ventana, text="Volver", command=lambda: self.interfaz(ventana))
         boton_volver.pack()
@@ -84,7 +83,7 @@ class Vistas:
         label_id=Label(ventana, text="ID de la Operación: ")
         label_id.pack(pady=5)
         label_id.config()
-        id = 0
+        id = IntVar()
         entry_id=Entry(ventana, textvariable=id, justify="right",width=30)
         entry_id.focus()
         entry_id.pack(pady=5)
@@ -92,14 +91,14 @@ class Vistas:
         label_num1=Label(ventana, text="Nuevo Número 1")
         label_num1.pack(pady=5)
         label_num1.config()
-        num1 = 0
+        num1 = IntVar()
         entry_num1=Entry(ventana, textvariable=num1, justify="right",width=30)
         entry_num1.pack(pady=5)
 
         label_num2=Label(ventana, text="Nuevo Número 2")
         label_num2.pack(pady=5)
         label_num2.config()
-        num2 = 0
+        num2 = IntVar()
         entry_num2=Entry(ventana, textvariable=num2, justify="right",width=30)
         entry_num2.pack(pady=5)
 
@@ -113,11 +112,11 @@ class Vistas:
         label_resultado=Label(ventana, text="Nuevo Resultado")
         label_resultado.pack(pady=5)
         label_resultado.config()
-        resultado = 0
+        resultado = StringVar()
         entry_resultado=Entry(ventana, textvariable=resultado, justify="right",width=30)
         entry_resultado.pack(pady=5)
 
-        boton_guardar=Button(ventana, text="Guardar", command=lambda: operaciones.Operaciones.actualizar(num1, num2, signo, resultado, id))
+        boton_guardar=Button(ventana, text="Guardar", command=lambda: funciones.Controladores.cambiar(num1.get(), num2.get(), signo.get(), resultado.get(), id.get()))
         boton_guardar.pack(pady=10)
 
         boton_volver=Button(ventana, text="Volver", command=lambda: self.interfaz(ventana))
@@ -143,7 +142,7 @@ class Vistas:
         entry_id.focus()
         entry_id.pack(pady=5)
 
-        boton_eliminar=Button(ventana, text="Eliminar", command=lambda: operaciones.Operaciones.eliminar(id))
+        boton_eliminar=Button(ventana, text="Eliminar", command=lambda: funciones.Controladores.eliminar(id.get()))
         boton_eliminar.pack()
 
         boton_volver=Button(ventana, text="Volver", command=lambda: self.interfaz(ventana))
