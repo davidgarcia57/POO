@@ -76,8 +76,9 @@ class Controlador:
         return registros
     
     @staticmethod
-    def cambiar_nota():
-        pass
+    def cambiar_nota(id,titulo,descripcion):
+        respuesta=nota.Nota.actualizar(id,titulo,descripcion)
+        Controlador.respuesta_sql("Cambiar Notas", respuesta)
 
     @staticmethod
     def eliminar_nota(id):

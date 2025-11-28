@@ -228,7 +228,10 @@ class Vistas():
         entry_descripcion=Entry(ventana, width=30, justify="center")
         entry_descripcion.pack(pady=5)
 
-        boton_guardar=Button(ventana, text="Guardar", justify="center", command=lambda: "")
+        boton_guardar=Button(ventana, text="Guardar", justify="center", command=lambda: controlador.Controlador.cambiar_nota(
+            entry_id.get(),
+            entry_titulo2.get(),
+            entry_descripcion.get()))
         boton_guardar.pack(pady=5)
         boton_guardar.config()
 
