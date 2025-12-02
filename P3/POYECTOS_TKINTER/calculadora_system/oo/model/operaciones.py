@@ -37,6 +37,15 @@ class Operaciones:
             return False
 
     @staticmethod
+    def buscar(id):
+        try:
+            cursor.execute("SELECT * FROM operaciones WHERE id=%s", (id,))
+            return cursor.fetchall
+        except Exception as e:
+            print("Error buscar:", e)
+            return []
+
+    @staticmethod
     def eliminar(id):
         try:
             cursor.execute(

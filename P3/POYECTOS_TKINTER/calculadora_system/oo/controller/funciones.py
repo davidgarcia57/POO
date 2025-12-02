@@ -1,5 +1,6 @@
 from tkinter import messagebox
 from model import operaciones
+from view import interfaz
 #Controlador
 
 class Controladores:
@@ -39,6 +40,10 @@ class Controladores:
         respuesta = operaciones.Operaciones.actualizar(num1, num2, signo, resultado, id)
         Controladores.respuesta_sql("Cambiar registro", respuesta)
 
+    @staticmethod
+    def buscar(ventana,id):
+        respuesta = operaciones.Operaciones.buscar(id)
+    
     @staticmethod
     def eliminar(id):
         respuesta = operaciones.Operaciones.eliminar(id)

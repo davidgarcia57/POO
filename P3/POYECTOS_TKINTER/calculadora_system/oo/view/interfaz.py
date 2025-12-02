@@ -47,7 +47,7 @@ class Vistas:
         archivoMenu.add_command(label="Agregar",command=lambda: self.interfaz(ventana))
         archivoMenu.add_command(label="Consultar",command=lambda: self.consultar(ventana))
         archivoMenu.add_command(label="Cambiar",command=lambda: self.cambiar(ventana))
-        archivoMenu.add_command(label="Borrar",command=lambda: self.eliminar(ventana))
+        archivoMenu.add_command(label="Borrar",command=lambda: self.buscar(ventana))
         archivoMenu.add_separator()
         archivoMenu.add_command(label="Salir", command=ventana.quit)
     
@@ -122,23 +122,43 @@ class Vistas:
         boton_volver=Button(ventana, text="Volver", command=lambda: self.interfaz(ventana))
         boton_volver.pack()
 
-    def eliminar(self,ventana):
+    def buscar(self,ventana):
+        self.borrarPantalla(ventana)
+        self.menuPrincipal(ventana)
+        label_titulo=Label(ventana, text=".::Buscar Operación::.")
+        label_titulo.pack(pady=5)
+        label_titulo.config(font=("Arial", 18))
+
+        label_id=Label(ventana, text="ID de la Operación: ")
+        label_id.pack(pady=5)
+        label_id.config(font=("Arial", 12))
+
+        entry_id=Entry(ventana, justify="right",width=5)
+        entry_id.focus()
+        entry_id.pack(pady=5)
+        respuesta= funciones.Controladores.buscar(entry_id)
+        if len(respuesta)>0:
+            
+        else:
+            messagebox.showinfo(message="No existe operación con este ID")
+        boton_buscar=Button(ventana, text="Buscar", command=lambda: self.eliminar(ventana, entry_id))
+        boton_buscar.pack(pady=5)
+
+        boton_volver=Button(ventana, text="Volver", command=lambda: self.interfaz(ventana))
+        boton_volver.pack(pady=5)
+
+    def eliminar(self,ventana,id):
         self.borrarPantalla(ventana)
         self.menuPrincipal(ventana)
         label_titulo=Label(ventana, text=".::Borrar una Operación::.")
         label_titulo.pack(pady=5)
-        label_titulo.config(
-        font=("Arial", 18)
-        )
+        label_titulo.config(font=("Arial", 18))
 
         label_id=Label(ventana, text="ID de la Operación: ")
         label_id.pack(pady=5)
-        label_id.config(
-        font=("Arial", 12)
-        )
+        label_id.config(font=("Arial", 12))
 
-        id = IntVar()
-        entry_id=Entry(ventana, textvariable=id, justify="right",width=5)
+        entry_id=Entry(ventana, textvariable=id, justify="right",width=5, state="disabled")
         entry_id.focus()
         entry_id.pack(pady=5)
 
