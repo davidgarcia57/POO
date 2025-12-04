@@ -138,7 +138,7 @@ class Vistas:
         entry_id.pack(pady=5)
         respuesta= funciones.Controladores.buscar(entry_id)
         if len(respuesta)>0:
-            
+            messagebox.showinfo(message="Operación encontrada")
         else:
             messagebox.showinfo(message="No existe operación con este ID")
         boton_buscar=Button(ventana, text="Buscar", command=lambda: self.eliminar(ventana, entry_id))
