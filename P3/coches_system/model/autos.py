@@ -38,3 +38,11 @@ class Autos:
             return True
         except:
             return False
+    
+    @staticmethod
+    def buscar(id):
+        try:
+            cursor.execute("SELECT * FROM autos WHERE id=%s", (id,))
+            return cursor.fetchone()
+        except:
+            return None

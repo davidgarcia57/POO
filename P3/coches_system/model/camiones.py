@@ -22,9 +22,9 @@ class Camiones:
             return []
 
     @staticmethod
-    def actualizar(id, marca):
+    def actualizar(id, marca, color, modelo, velocidad, caballaje, plazas, eje, capacidadcarga):
         try:
-            cursor.execute("UPDATE camiones SET marca=%s WHERE id=%s", (marca, id))
+            cursor.execute("UPDATE camiones SET marca=%s, color=%s, modelo=%s, velocidad=%s, caballaje=%s, plazas=%s, eje=%s, capacidadcarga=%s WHERE id=%s", (marca, color, modelo, velocidad, caballaje, plazas, eje, capacidadcarga, id))
             conexion.commit()
             return True
         except:
@@ -38,3 +38,11 @@ class Camiones:
             return True
         except:
             return False
+    
+    @staticmethod
+    def buscar(id):
+        try:
+            cursor.execute("SELECT * FROM camiones WHERE id=%s", (id,))
+            return cursor.fetchone()
+        except:
+            return None
