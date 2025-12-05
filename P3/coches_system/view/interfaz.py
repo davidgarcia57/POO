@@ -115,10 +115,16 @@ class Vistas:
         entry_plazas = Entry(ventana, width=30)
         entry_plazas.pack(pady=2)
 
+        # Se convierten los campos numéricos a int() antes de enviarlos
         boton_guardar = Button(ventana, text="Guardar", bg="#4CAF50", fg="white",
                                command=lambda: funciones.Controladores.insertar_auto(
-                                   entry_marca.get(), entry_color.get(), entry_modelo.get(),
-                                   entry_velocidad.get(), entry_caballaje.get(), entry_plazas.get()))
+                                   entry_marca.get(), 
+                                   entry_color.get(), 
+                                   entry_modelo.get(),
+                                   int(entry_velocidad.get()) if entry_velocidad.get() else 0, 
+                                   int(entry_caballaje.get()) if entry_caballaje.get() else 0, 
+                                   int(entry_plazas.get()) if entry_plazas.get() else 0
+                                ))
         boton_guardar.pack(pady=10)
 
         boton_volver = Button(ventana, text="Volver", command=lambda: Vistas.menu_acciones(ventana, "Autos"))
@@ -187,8 +193,17 @@ class Vistas:
         entry_plazas = Entry(ventana, width=30)
         entry_plazas.pack(pady=2)
 
+        # Conversión segura con if/else en una línea para evitar errores si el campo está vacío al actualizar
         boton_actualizar = Button(ventana, text="Actualizar", bg="#FFC107",
-                                  command=lambda: funciones.Controladores.cambiar_auto(entry_id.get(), entry_marca.get(), entry_color.get(), entry_modelo.get(), entry_velocidad.get(), entry_caballaje.get(), entry_plazas.get()))
+                                  command=lambda: funciones.Controladores.cambiar_auto(
+                                      entry_id.get(), 
+                                      entry_marca.get(), 
+                                      entry_color.get(), 
+                                      entry_modelo.get(), 
+                                      int(entry_velocidad.get()) if entry_velocidad.get() else 0, 
+                                      int(entry_caballaje.get()) if entry_caballaje.get() else 0, 
+                                      int(entry_plazas.get()) if entry_plazas.get() else 0
+                                    ))
         boton_actualizar.pack(pady=10)
 
         boton_volver = Button(ventana, text="Volver", command=lambda: Vistas.menu_acciones(ventana, "Autos"))
@@ -259,11 +274,18 @@ class Vistas:
         check_cerrada = Checkbutton(ventana, text="¿Es Cerrada?", variable=var_cerrada)
         check_cerrada.pack(pady=2)
 
+        # Conversión a int() para campos numéricos
         boton_guardar = Button(ventana, text="Guardar", bg="#4CAF50", fg="white",
                                command=lambda: funciones.Controladores.insertar_camioneta(
-                                   entry_marca.get(), entry_color.get(), entry_modelo.get(),
-                                   entry_velocidad.get(), entry_caballaje.get(), entry_plazas.get(),
-                                   entry_traccion.get(), var_cerrada.get()))
+                                   entry_marca.get(), 
+                                   entry_color.get(), 
+                                   entry_modelo.get(),
+                                   int(entry_velocidad.get()) if entry_velocidad.get() else 0, 
+                                   int(entry_caballaje.get()) if entry_caballaje.get() else 0, 
+                                   int(entry_plazas.get()) if entry_plazas.get() else 0,
+                                   entry_traccion.get(), 
+                                   var_cerrada.get()
+                                ))
         boton_guardar.pack(pady=10)
 
         boton_volver = Button(ventana, text="Volver", command=lambda: Vistas.menu_acciones(ventana, "Camionetas"))
@@ -341,11 +363,17 @@ class Vistas:
         check_cerrada = Checkbutton(ventana, text="¿Es Cerrada?", variable=var_cerrada)
         check_cerrada.pack(pady=2)
 
+        # Conversión a int() para campos numéricos
         boton_actualizar = Button(ventana, text="Actualizar", bg="#FFC107",
                                   command=lambda: funciones.Controladores.cambiar_camioneta(
-                                   entry_marca.get(), entry_color.get(), entry_modelo.get(),
-                                   entry_velocidad.get(), entry_caballaje.get(), entry_plazas.get(),
-                                   entry_traccion.get(), var_cerrada.get()
+                                   entry_marca.get(), 
+                                   entry_color.get(), 
+                                   entry_modelo.get(),
+                                   int(entry_velocidad.get()) if entry_velocidad.get() else 0, 
+                                   int(entry_caballaje.get()) if entry_caballaje.get() else 0, 
+                                   int(entry_plazas.get()) if entry_plazas.get() else 0,
+                                   entry_traccion.get(), 
+                                   var_cerrada.get()
                                   ))
         boton_actualizar.pack(pady=10)
 
@@ -418,11 +446,18 @@ class Vistas:
         entry_carga = Entry(ventana, width=30)
         entry_carga.pack(pady=2)
 
+        # Conversión a int() para campos numéricos
         boton_guardar = Button(ventana, text="Guardar", bg="#4CAF50", fg="white",
                                command=lambda: funciones.Controladores.insertar_camion(
-                                   entry_marca.get(), entry_color.get(), entry_modelo.get(),
-                                   entry_velocidad.get(), entry_caballaje.get(), entry_plazas.get(),
-                                   entry_ejes.get(), entry_carga.get()))
+                                   entry_marca.get(), 
+                                   entry_color.get(), 
+                                   entry_modelo.get(),
+                                   int(entry_velocidad.get()) if entry_velocidad.get() else 0, 
+                                   int(entry_caballaje.get()) if entry_caballaje.get() else 0, 
+                                   int(entry_plazas.get()) if entry_plazas.get() else 0,
+                                   int(entry_ejes.get()) if entry_ejes.get() else 0, 
+                                   int(entry_carga.get()) if entry_carga.get() else 0
+                                ))
         boton_guardar.pack(pady=10)
 
         boton_volver = Button(ventana, text="Volver", command=lambda: Vistas.menu_acciones(ventana, "Camiones"))
@@ -501,11 +536,17 @@ class Vistas:
         entry_carga = Entry(ventana, width=30)
         entry_carga.pack(pady=2)
 
+        # Conversión a int() para campos numéricos
         boton_actualizar = Button(ventana, text="Actualizar", bg="#FFC107",
                                   command=lambda: funciones.Controladores.cambiar_camion(
-                                    entry_marca.get(), entry_color.get(), entry_modelo.get(),
-                                   entry_velocidad.get(), entry_caballaje.get(), entry_plazas.get(),
-                                   entry_ejes.get(), entry_carga.get()
+                                    entry_marca.get(), 
+                                    entry_color.get(), 
+                                    entry_modelo.get(),
+                                    int(entry_velocidad.get()) if entry_velocidad.get() else 0, 
+                                    int(entry_caballaje.get()) if entry_caballaje.get() else 0, 
+                                    int(entry_plazas.get()) if entry_plazas.get() else 0,
+                                    int(entry_ejes.get()) if entry_ejes.get() else 0, 
+                                    int(entry_carga.get()) if entry_carga.get() else 0
                                   ))
         boton_actualizar.pack(pady=10)
 
