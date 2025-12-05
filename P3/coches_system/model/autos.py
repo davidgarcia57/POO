@@ -22,9 +22,9 @@ class Autos:
             return []
 
     @staticmethod
-    def actualizar(id, marca):
+    def actualizar(id, marca, color, modelo, velocidad, caballaje, plazas):
         try:
-            cursor.execute("UPDATE autos SET marca=%s WHERE id=%s", (marca, id))
+            cursor.execute("UPDATE autos SET marca=%s, color=%s, modelo=%s, velocidad=%s, caballaje=%s, plazas=%s WHERE id=%s", (marca, color, modelo, velocidad, caballaje, plazas, id))
             conexion.commit()
             return True
         except:

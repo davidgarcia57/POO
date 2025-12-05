@@ -152,18 +152,43 @@ class Vistas:
         lbl_titulo = Label(ventana, text="Cambiar Auto", font=("Arial", 16))
         lbl_titulo.pack(pady=10)
 
-        lbl_id = Label(ventana, text="ID del Auto:")
+        lbl_id = Label(ventana, text="ID del Auto a cambiar:")
         lbl_id.pack()
         entry_id = Entry(ventana, width=30)
         entry_id.pack(pady=5)
 
-        lbl_marca = Label(ventana, text="Nueva Marca:")
+        lbl_marca = Label(ventana, text="Marca:")
         lbl_marca.pack()
         entry_marca = Entry(ventana, width=30)
-        entry_marca.pack(pady=5)
+        entry_marca.pack(pady=2)
+
+        lbl_color = Label(ventana, text="Color:")
+        lbl_color.pack()
+        entry_color = Entry(ventana, width=30)
+        entry_color.pack(pady=2)
+
+        lbl_modelo = Label(ventana, text="Modelo:")
+        lbl_modelo.pack()
+        entry_modelo = Entry(ventana, width=30)
+        entry_modelo.pack(pady=2)
+
+        lbl_velocidad = Label(ventana, text="Velocidad:")
+        lbl_velocidad.pack()
+        entry_velocidad = Entry(ventana, width=30)
+        entry_velocidad.pack(pady=2)
+
+        lbl_caballaje = Label(ventana, text="Caballaje:")
+        lbl_caballaje.pack()
+        entry_caballaje = Entry(ventana, width=30)
+        entry_caballaje.pack(pady=2)
+
+        lbl_plazas = Label(ventana, text="Plazas:")
+        lbl_plazas.pack()
+        entry_plazas = Entry(ventana, width=30)
+        entry_plazas.pack(pady=2)
 
         boton_actualizar = Button(ventana, text="Actualizar", bg="#FFC107",
-                                  command=lambda: funciones.Controladores.cambiar_auto(entry_id.get(), entry_marca.get()))
+                                  command=lambda: funciones.Controladores.cambiar_auto(entry_id.get(), entry_marca.get(), entry_color.get(), entry_modelo.get(), entry_velocidad.get(), entry_caballaje.get(), entry_plazas.get()))
         boton_actualizar.pack(pady=10)
 
         boton_volver = Button(ventana, text="Volver", command=lambda: Vistas.menu_acciones(ventana, "Autos"))
